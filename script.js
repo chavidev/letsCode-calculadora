@@ -6,18 +6,20 @@
  let resta = document.getElementById("resta");
  let multiplicacion = document.getElementById("multiplicacion");
  let division = document.getElementById("division");
+
+ let result = document.getElementById("result");
  
 function operarObjeto ({inputA:inputA,inputB:inputB,operacion}) {
   let resultado = `${inputA}${operacion}${inputB}`
   return resultado
 } 
-/* el operador pasarlo como una variable ¿es posible? */
+/* Pasar el operador  como una variable => ¿es imposible? */
 function operarSimple (inputA,inputB,operador) {
-  //let A = inputA.parseFloat()
   //let B = inputB.parseFloat()
   let resultado = 0
   if (operador == "+") {
-    resultado = parseFloat(inputA) + parseFloat(inputB)
+    /* resultado = inputA.parseFloat(2) + inputB.parseFloat(2) */ // ¿por Qué no me funciona?
+    resultado = parseFloat(inputA) + parseFloat(inputB) /* ¿cómo le ponía dos decimales? */
   }
   if (operador == "-") {
     resultado = inputA - inputB
@@ -28,7 +30,7 @@ function operarSimple (inputA,inputB,operador) {
   if (operador == "/") {
     resultado = inputA / inputB
   }
-   
+  result.innerHTML = resultado.toFixed(2) 
   console.log(resultado)
   return resultado
 }
